@@ -1,0 +1,32 @@
+{
+  "name": "movieku",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "autoprefixer": "^9.8.6",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "moment": "^2.29.1",
+    "node-sass": "^6.0.1",
+    "postcss": "^7.0.36",
+    "sass-loader": "^10",
+    "swiper": "^6.8.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.8",
+    "vue": "^3.0.0",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-router": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "vue-cli-plugin-tailwind": "~2.0.6"
+  }
+}
