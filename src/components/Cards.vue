@@ -58,9 +58,9 @@ export default {
   },
   async mounted() {
     try {
-      if (this.type === 'credits') {
-        const request = await axios.get(`${this.base_url}/3/movie/${this.movieId}/${this.type}?api_key=${this.api_key}&language=en-US`)
-        const response = request.data.cast
+      if (this.type === 'credits' || this.type === 'similar' || this.type === 'recommendations') {
+        const request = await axios.get(`${this.base_url}/3/movie/${this.movieId}/${this.type}?api_key=${this.api_key}&language=en-US&page=1`)
+        const response = request.data.cast ?? request.data.results
 
         this.results = response
       } else {

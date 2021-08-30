@@ -10,7 +10,7 @@
             <img :src="`${img_url}/t/p/w500/${movie.poster_path}`" class="rounded-md">
           </div>
           <div class="flex flex-1 flex-col gap-2.5 place-content-center">
-            <h1 class="text-white text-4xl font-semibold">{{ movie.original_title }}</h1>
+            <h1 class="text-white text-4xl font-semibold">{{ movie.title }}</h1>
             <div class="flex items-center text-sm gap-2">
               <i class="fas fa-star text-white"></i>
               <span class="text-white">{{ movie.vote_average }} / 10</span>
@@ -36,6 +36,8 @@
     </div>
     <div class="container py-12">
       <Cards :title="'Movie Actors'" :type="'credits'" :movieId="movie_id" :showMore="true" />
+      <Cards :title="'Similar Movies'" :type="'similar'" :movieId="movie_id" :showMore="true" />
+      <Cards :title="'Recommendation Movies'" :type="'recommendations'" :movieId="movie_id" :showMore="true" />
     </div>
   </div>
 
