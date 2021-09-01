@@ -5,7 +5,7 @@
         <h1 class="title text-4xl font-semibold text-white">
           {{ title }}
         </h1>
-        <div v-if="showMore" class="flex items-center gap-3 text-gray-400 hover:text-white">
+        <div v-if="results.length >= 20" class="flex items-center gap-3 text-gray-400 hover:text-white">
           <router-link to="#">Show More</router-link>
           <i class="fas fa-chevron-right"></i>
         </div>
@@ -38,10 +38,6 @@ export default {
     title: String,
     type: String,
     movieId: String,
-    showMore: {
-      type: Boolean,
-      default: true
-    }
   },
   methods: {
     getDetailMovie(id) {
@@ -70,7 +66,6 @@ export default {
         this.results = response
       }
 
-      console.log(this.cursorType)
     } catch (error) {
       console.log(error)
     }
@@ -78,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* width */
 .items::-webkit-scrollbar {
   width: 10px;

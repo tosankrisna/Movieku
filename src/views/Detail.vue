@@ -35,9 +35,9 @@
       </div>
     </div>
     <div class="container">
-      <Cards :title="'Movie Actors'" :type="'credits'" :movieId="movie_id" :showMore="true" />
-      <Cards :title="'Similar Movies'" :type="'similar'" :movieId="movie_id" :showMore="true" />
-      <Cards :title="'Recommendation Movies'" :type="'recommendations'" :movieId="movie_id" :showMore="true" />
+      <Cards :title="'Movie Actors'" :type="'credits'" :movieId="movie_id" />
+      <Cards :title="'Similar Movies'" :type="'similar'" :movieId="movie_id" />
+      <Cards :title="'Recommendation Movies'" :type="'recommendations'" :movieId="movie_id" />
     </div>
   </div>
 
