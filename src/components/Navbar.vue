@@ -18,19 +18,19 @@
           </li>
         </ul>
       </div>
-      <div class="hidden md:flex flex-1 justify-end items-center">
-        <input type="text" class="h-10 md:lg-1/2 lg:w-2/5 bg-none px-2 rounded-full px-4 outline-none" placeholder="Search movie...">
-        <div class="relative">
-          <i class="fas fa-search absolute right-5 -top-2 text-gray-400"></i>
-        </div>
-      </div>
+      <Search />
     </nav>
   </header>
 </template>
 
 <script>
+import Search from './Search.vue'
+
 export default {
   name: 'Navbar',
+  components: {
+    Search,
+  }
 }
 </script>
 

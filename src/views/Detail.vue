@@ -3,7 +3,7 @@
   <Navbar v-if="!loader" />
 
   <div class="bg-primary" v-if="!loader">
-    <div class="bg-no-repeat bg-center bg-cover bg-top" :style="`background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.9)) ,url(${img_url}/t/p/w1280/${movie.backdrop_path})`">
+    <div class="bg-no-repeat bg-center bg-cover bg-top mb-12" :style="`background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.9)) ,url(${img_url}/t/p/w1280/${movie.backdrop_path})`">
       <div class="container">
         <div class="flex py-16">
           <div class="flex mr-10 h-md">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <div class="container py-12">
+    <div class="container">
       <Cards :title="'Movie Actors'" :type="'credits'" :movieId="movie_id" :showMore="true" />
       <Cards :title="'Similar Movies'" :type="'similar'" :movieId="movie_id" :showMore="true" />
       <Cards :title="'Recommendation Movies'" :type="'recommendations'" :movieId="movie_id" :showMore="true" />
