@@ -1,18 +1,18 @@
 <template>
-  <section class="cards bg-primary pb-10">
+  <section v-if="results.length" class="cards bg-primary pb-2 md:pb-4">
     <div class="container">
-      <div class="flex justify-between mb-8 items-center">
-        <h1 class="title text-4xl font-semibold text-white">
+      <div class="flex justify-between mb-5 md:mb-8 items-center">
+        <h1 class="title ml-3 md:ml-5 lg:ml-8 text-lg md:text-2xl xl:ml-0 lg:text-4xl font-semibold text-white">
           {{ title }}
         </h1>
-        <div v-if="results.length >= 20" class="flex items-center gap-3 text-gray-400 hover:text-white">
-          <router-link to="#">Show More</router-link>
+        <div v-if="results.length >= 20" class="flex items-center mr-1.5 md:mr-2 lg:mr-10 xl:mr-0 gap-2 lg:gap-3 text-gray-400 hover:text-white">
+          <router-link :to="cardUrl" class="text-sm md:text-md">Show More</router-link>
           <i class="fas fa-chevron-right"></i>
         </div>
       </div>
-      <div class="items flex gap-8 overflow-x-auto pb-8 mb-12">
+      <div class="items flex pl-3 pr-2 md:pl-6 md:pr-2 lg:ml-8 lg:mr-8 lg:pl-0 xl:ml-0 xl:mr-0 xl:pr-0 gap-2 md:gap-4 xl:gap-8 overflow-x-auto lg:pb-8 mb-12">
         <div v-for="res in results.slice(0, 20)" :key="res.id">
-          <Card @click="clickType(res.id)" :cursor="cursorType" :data="res" />
+          <Card @click="clickType(res.id)" :cursor="cursorType" :data="res" class="w-40 md:w-48 lg:w-52 xl:w-lg" />
         </div>
       </div>
     </div>
@@ -50,6 +50,13 @@ export default {
   computed: {
     cursorType() {
       return this.type === 'credits' ? '' : 'cursor-pointer'
+    },
+    cardUrl() {
+      if (this.$route.params.movieId) {
+        return `/${this.type.replace('_', '')}/${this.$route.params.movieId}`
+      } else {
+        return `/${this.type.replace('_', '')}`
+      }
     }
   },
   async mounted() {
@@ -78,7 +85,6 @@ export default {
 .items::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  scroll-margin-top: 5vh;
 }
 
 /* Track */
@@ -97,4 +103,12 @@ export default {
 .items::-webkit-scrollbar-thumb:hover {
   background: #a0aec0;
 }
+
+@media screen and (max-width: 768px) {
+  .items::-webkit-scrollbar {
+    display: none;
+  }
+
+} 
+
 </style>

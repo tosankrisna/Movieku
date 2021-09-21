@@ -1,13 +1,13 @@
 <template>
-  <div class="hidden md:flex flex-1 justify-end items-center">
-    <input type="text" v-model="input_value" @input="searchMovie" class="h-10 md:lg-1/2 lg:w-2/5 bg-none px-2 rounded-full px-4 outline-none" placeholder="Search movie...">
+  <div class="flex lg:flex-1 justify-end items-center ml-auto">
+    <input type="text" v-model="input_value" @input="searchMovie" class="h-9 lg:h-10 w-3/4 md:w-40 lg:w-1/2 xl:w-2/5 bg-none rounded-full pl-3 pr-11 md:pl-4 outline-none" placeholder="Search...">
     <div class="relative">
-      <i class="fas fa-search absolute right-5 -top-2 text-gray-400"></i>
+      <i @click="searchMovie" class="fas fa-search absolute right-5 -top-2 text-gray-400"></i>
     </div>
   </div>
 
   <div v-show="show_result" class="relative">
-    <div class="items absolute top-20 right-1 z-10 rounded-md w-80 max-h-96 overflow-y-auto bg-white">
+    <div class="items absolute top-14 lg:top-16 right-0 md:right-1 z-10 rounded-md w-60 md:w-80 max-h-96 overflow-y-auto bg-white">
       <ul v-for="result in search_result" :key="result.id" class="flex flex-col gap-2 p-2">
         <li class="flex gap-4 cursor-pointer" @click="getDetailMovie(result.id)">
           <img class="h-20" :src="`${img_url}/t/p/w500/${result.poster_path}`" alt="">
@@ -59,7 +59,8 @@ export default {
       }
     },
     getDetailMovie(id) {
-      return this.$router.push({ name: 'Detail', params: { movieId: id} })
+      this.show_result = false
+      this.$router.push({ name: 'Detail', params: { movieId: id} })
     },
   },
 }
